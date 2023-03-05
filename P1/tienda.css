@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'fuente';
+    src: url(LETRA.otf);
+  }
+  
+  
+  body {
+    background-image: url(imagenes/fondo.jpg);
+    background-size: cover;
+  }
+
+  #logoInicial{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+ h1{
+    margin-top: 10px;
+    font-family:'fuente'; 
+    text-align: center;
+    color: rgb(255, 179, 217);
+    font-size: 50px;
+  }
+
+  
+  
+.icono {
+    text-align:right;
+    width: 5%;
+  }
