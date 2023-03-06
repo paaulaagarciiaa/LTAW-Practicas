@@ -5,21 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIENDA DE JUGUETES</title>
-    <link rel="icon" type="image/x-icon" href="Fotos/mando2.png">
     <link rel="stylesheet" href="playmobil.css">
     <script src="tienda.js" defer></script>
+</head>
 
-    <div class="cuadrado1">
-        <center>
+<body>
+
+    <div id="logoPlaymobil">
+        <img src="imagenes/playmobil.jpg">
+    </div>
+
+<div class="cuadrado1">
 <div class="arriba">
-    <img src="imagenes/playmobilcowboy.jpg" id="izquierda">
-    <img src="imagenes/playmobilmercadomovil.jpg" id="derecha">
+    <img onclick="window.location.href='playcowboy.html'" src="imagenes/playmobilcowboy.jpg" id="izquierda">
+    <img onclick="window.location.href='playmercado.html'" src="imagenes/playmobilmercadomovil.jpg" id="derecha">
 </div>
 <div class="abajo">
-    <img src="imagenes/playmobilpescador.png" id="izquierda">
-    <img src="imagenes/playmobilprincesa.jpeg" id="derecha">
+    <img onclick="window.location.href='playpescador.html'" src="imagenes/playmobilpescador.png" id="izquierda">
+    <img onclick="window.location.href='playprincesa.html'" src="imagenes/playmobilprincesa.jpeg" id="derecha">
 </div>
 </center>
 </div>
-
-</head>
+<div class="pgo">
+    <p>MEDIOS DE PAGO</p>
+    <img src="imagenes/pago.png" id="pago">
+</div>
+</body>
+</html>

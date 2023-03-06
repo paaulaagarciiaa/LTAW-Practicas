@@ -1,44 +1,26 @@
 
-@font-face {
-    font-family: 'fuente';
-    src: url(LETRA.otf);
-  }
-
   @font-face {
     font-family: 'fuente2';
     src: url(Letra2.otf);
   }
   
-  
   body {
-    background-image: url(imagenes/fondo.jpg);
+    background-image: url(imagenes/fondoPlaymobil.jpg);
     background-size: cover;
   }
 
-  #logoInicial{
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-  }
 
   img {
-    width:110px;
+    width:170px;
     height: 80px;
   }
 
- h1{
-    margin-top: 10px;
-    font-family:'fuente'; 
-    text-align: center;
-    color: rgb(202, 180, 17);
-    font-size: 30px;
-  }
-
-  .arriba{
+.arriba{
     margin-top: 30px;
     display: flex;
     justify-content: center;
 }
+
 
 .abajo{
     margin-top: 50px;
@@ -65,19 +47,58 @@
 
 .pgo{
     margin-top: 100px;
-    font-family:'fuente'; 
+    font-family:'fuente2'; 
 }
 
-.icono {
-    text-align:right;
-    width: 5%;
-  }
 
 .cuadrado1 {
     width: 700px;
     height: 400px;
-    border: 5px solid rgb(56, 70, 192);
+    border: 5px solid rgb(52, 141, 231);
     background-color: rgb(255, 255, 255);
-    margin-top: 100px;
+    margin-top: 20px;
     margin-left: 420px;
   }
+
+  #logoPlaymobil{
+    margin-top: 50px;
+    margin-left: 700px;
+  }
+
+  .cuadrado2 {
+    width: 300px;
+    height: 350px;
+    border: 5px solid rgb(255, 240, 34);
+    background-color: rgb(255, 255, 255);
+    margin-top: 110px;
+    margin-left: 430px;
+  }
+
+  #fotoGrande{
+    width:220px;
+    height: 230px;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
+
+  h3 {
+    color: rgb(0, 0, 0);
+    margin-left: 132px;
+  }
+
+  .cuadrado3 {
+    width: 330px;
+    height: 500px;
+    border: 5px solid rgb(255, 240, 34);
+    background-color: rgb(255, 255, 255, 0.7);
+    margin-top: 40px;
+    margin-left: 4px;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      'menu main main main main right'
+      'menu footer footer footer footer footer';
+  }
+
