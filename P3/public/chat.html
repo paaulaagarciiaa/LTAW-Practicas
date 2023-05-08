@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="chat-style.css">
-  <title>Practica 3</title>
+ <html>
+ <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
-  <script src="/socket.io/socket.io.js"></script>
+   
+   <title>Chat (Practica 3)</title>
 
-  <!-- Cliente que usa los Sockets.io-->
-  <script src="chat-client.js" defer></script>
-</head>
+   <!-- Cargar la biblioteca Socket.IO. Nos la debe entregar el servidor -->
+   <script src="/socket.io/socket.io.js"></script>
 
-<body>
-  <div class="principal">
-    <h1>CHAT</h1>
-    <div class="sub_principal">
-      <p id="display"></p>
+   <!-- Cliente que usa los Sockets.io-->
+   <script src="chat-client.js" defer></script>
+ </head>
+
+ <body>
+    <h2>Chat Spider-man</h2>
+    <div id="respuesta">
+        Introduce nombre de usuario:
+        <input type="text" name="nick" id="msg_user"/>
+        <p></p>
     </div>
-    <br>
-    <input type="text" placeholder="Escribe aquí los mensajes..." autocomplete="off" id="msg_entry">
-    <button type="button" id="send">INTRO</button>
-  </div>
-</body>
-</html>
+    <div>
+        <input type="text" placeholder="Introducir mensajes" autocomplete="off" id="msg_entry">
+        <h3>Mensajes recibidos</h3>
+        <p id="display"></p>
+    </div>
+
+   
+ </body>
+ </html>
