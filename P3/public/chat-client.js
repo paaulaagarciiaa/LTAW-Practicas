@@ -1,35 +1,58 @@
 //-- Elementos del interfaz
-const button = document.getElementById("button");
 const display = document.getElementById("display");
+const msg_entry = document.getElementById("msg_entry");
+const button = document.getElementById("button");
+const username = prompt("Ingrese su nombre de usuario:");
 
 //-- Crear un websocket. Se establece la conexión con el servidor
 const socket = io();
+socket.emit("nuevo usuario", username);
 
-let contador = 1;
+// Enviar un mensaje al chat cuando se presiona el botón "Enviar"
+const enviarMensaje = () => {
+  const mensajeInput = document.getElementById("mensaje-input");
+  const mensaje = mensajeInput.value;
+  socket.emit("nuevo mensaje", mensaje);
+  mensajeInput.value = "";
+};
 
-socket.on("connect", () => {
-  //-- Enviar mensaje inicial
-  socket.send("Mensaje inicial del Cliente!!!");
-});  
-
-socket.on("disconnect", ()=> {
-  display.innerHTML="¡¡DESCONECTADO!!"
-})
+// Mostrar un nuevo mensaje en la pantalla
+const agregarMensaje = (mensaje) => {
+  const chat = document.getElementById("chat");
+  const mensajeDiv = document.createElement("div");
+  mensajeDiv.textContent = mensaje;
+  chat.appendChild(mensajeDiv);
+};
 
 socket.on("message", (msg)=>{
   display.innerHTML += '<p style="color:blue">' + msg + '</p>';
 });
 
+// Mostrar el nombre del usuario en la pantalla
+const nombreUsuario = document.createElement("div");
+nombreUsuario.textContent = `Bienvenido al chat, ${username}!`;
+document.body.appendChild(nombreUsuario);
+
 //-- Al apretar el botón se envía un mensaje al servidor
-button.onclick = () => {
-  socket.send("Holiii-" + contador);
-  contador += 1;
+msg_entry.onchange = () => {
+  if (msg_entry.value)
+    socket.send(msg_entry.value);
+  
+  //-- Borrar el mensaje actual
+  msg_entry.value = "";
 }
 
-let tic = 1;
+// Escuchar cuando un nuevo mensaje es recibido
+socket.on("nuevo mensaje", (mensaje) => {
+  agregarMensaje(mensaje);
+});
 
-//-- Enviar un mensaje periódico ("TIC")
-setInterval(() => {
-    socket.emit('tic', "TIC-" + tic);
-    tic += 1;
-}, 1000);
+// Escuchar cuando se conecta un nuevo usuario
+socket.on("usuario conectado", (usuario) => {
+  agregarMensaje(`${usuario} se ha conectado al chat`);
+});
+
+// Escuchar cuando se desconecta un usuario
+socket.on("usuario desconectado", (usuario) => {
+  agregarMensaje(`${usuario} se ha desconectado del chat`);
+});

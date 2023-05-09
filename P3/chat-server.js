@@ -1,8 +1,10 @@
 //-- Cargar las dependencias
-const socketServer = require('socket.io').Server;
+const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+
+const usuariosConectados = [];
 
 const PUERTO = 8080;
 
@@ -13,7 +15,7 @@ const app = express();
 const server = http.Server(app);
 
 //-- Crear el servidor de websockets, asociado al servidor http
-const io = new socketServer(server);
+const io = socket(server);
 
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
@@ -32,27 +34,19 @@ app.use(express.static('public'));
 //-- Evento: Nueva conexion recibida
 io.on('connect', (socket) => {
   
-  console.log('** NUEVA CONEXIÓN **'.yellow);
+  console.log('** NUEVO USUARIO CONECTADO **'.yellow);
 
   //-- Evento de desconexión
   socket.on('disconnect', function(){
-    console.log('** CONEXIÓN TERMINADA **'.yellow);
+    console.log('** USUARIO DESCONECTADO **'.yellow);
   });  
 
-  //-- Mensaje recibido: Hacer eco
+  //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
 
-    //-- Hacer eco
-    socket.send(msg);
-  });
-
-  //-- Atender mensajes de TIC
-  socket.on('tic', (msg)=> {
-
-    //-- Los mensajes de tic se sacan por la consola,
-    //-- pero no se hace eco de ellos
-    console.log(msg.green);
+    //-- Reenviarlo a todos los clientes conectados
+    io.send(msg);
   });
 
 });
