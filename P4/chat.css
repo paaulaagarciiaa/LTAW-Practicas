@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'fuente';
+    src: url(letra.otf);
+  }
+
+@font-face {
+    font-family: 'fuente2';
+    src: url(letra2.otf);
+}
+
+body{
+    background-image: url(fondo.jpg);
+    text-align: center;
+}
+
+h2 {
+    font-family: "fuente2";
+    font-size: 80px;
+    text-align: center;
+    padding: 10px;
+    margin: 100px;
+    margin-bottom: 0px;
+    color:black;
+    -webkit-text-stroke: 1.2px rgb(162, 184, 255);
+    }
+
+
+#msg_entry{
+    border-color: rgb(251, 243, 249);
+    color: black;
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#display{
+    border-style: outset;
+    border-width: 10px;
+    border-radius: 15px;
+    border-color: rgb(2, 49, 22);
+    text-align: center;
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(50, 160, 85, 0.8);
+    color:rgb(2, 49, 22);
+    overflow: scroll;
+    font-family: 'Courier New', Courier, monospace;
+} 
+
+#respuesta{
+    text-align: center;
+    font-weight: bold;
+    margin-left: 120px ;
+    margin-right: 120px ;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-style: verdana; 
+    color: rgb(0, 0, 0)
+}
