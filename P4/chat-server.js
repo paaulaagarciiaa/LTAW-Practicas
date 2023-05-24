@@ -4,9 +4,7 @@ const http = require('http');
 const express = require('express');
 const colors = require('colors');
 
-const usuariosConectados = [];
-
-const PUERTO = 8080;
+const PUERTO = 8090;
 
 //-- Crear una nueva aplciacion web
 const app = express();
@@ -20,7 +18,7 @@ const io = socket(server);
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
 app.get('/', (req, res) => {
-  res.send('Bienvenido a mi aplicación Web!!!' + '<p><a href="/chat.html">Test</a></p>');
+  res.send('Bienvenido a mi Chat!!!' + '<p><a href="/chat.html">Entrar al Chat</a></p>');
 });
 
 //-- Esto es necesario para que el servidor le envíe al cliente la
@@ -43,10 +41,39 @@ io.on('connect', (socket) => {
 
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
-    console.log("Mensaje Recibido!: " + msg.blue);
+    console.log(`Mensaje recibido!:` + msg.blue);
+    const command = msg.split("/")[1];
 
-    //-- Reenviarlo a todos los clientes conectados
+switch (command) {
+  case 'help':
+    socket.send("Comandos soportados : /hello, /list, /hour y /date");
+    break;
+
+  case 'hello':
+    socket.send('Bienvenido al chat!!!!');
+  break;
+
+  case 'list':
+    const users = 'Número de usuarios conectados: ' + io.engine.clientsCount;
+    socket.send(users);
+    break;
+
+  case 'hour':
+    const currentTime = new Date();
+    const timeString = 'Son las: ' + currentTime.toLocaleTimeString();
+    socket.send(timeString);
+  break;
+
+  case 'date':
+    const currentDate = new Date();
+    const dateString = 'Hoy es: ' + currentDate.toLocaleDateString();
+    socket.send(dateString);
+    break;
+
+  default:
     io.send(msg);
+    break;
+}
   });
 
 });
