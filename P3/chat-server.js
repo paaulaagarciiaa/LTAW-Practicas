@@ -4,8 +4,6 @@ const http = require('http');
 const express = require('express');
 const colors = require('colors');
 
-const usuariosConectados = [];
-
 const PUERTO = 8080;
 
 //-- Crear una nueva aplciacion web
@@ -43,7 +41,7 @@ io.on('connect', (socket) => {
 
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
-    console.log("Mensaje Recibido!: " + msg.blue);
+    console.log(`Mensaje recibido!:` + msg.blue);
     
 
     //-- Reenviarlo a todos los clientes conectados
