@@ -1,54 +1,39 @@
-@font-face
-{
-   font-family: "monaco";
-   src: url("monaco.ttf");
-}
-body {
-    background-image: url('fondochat4.jpg');
-    background-size: cover;
-   
-  }
-
-h1 {
-    font-family: 'monaco';
-    font-size:40px;
-    display: block;
-    margin-left: 21cm;
-
-}
-h2 {
-  font-family: 'monaco';
-  font-size:40px;
-  display: block;
-  margin-left: 21cm;
-
-}
-h3 {
-  margin-top: 1.7cm;
-    font-family: 'monaco';
-    font-size:40px;
-    display: block;
-    margin-left: 22cm;
-
+@font-face{
+  font-family: "darksouls";
+  src: url(OptimusPrinceps.ttf);
 }
 
-#display {
-    
-    border: 3px solid black;
-    border-style: dashed;
-    padding: 10px;
-    background-color: transparent;
-    height:500px;
-    overflow-y: scroll;
+body{
+  background-image:url('Fotos/bg.png');
 }
 
-#msgentry {
-  border: 2px solid #4CAF50;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 18px;
-  color: #333;
-  background-color: #fff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin-left: 22cm;
+.chat{
+  width: 800px;
+  padding: 25px 30px;
+  /*  position: absolute; */
+  margin: auto;
+  /* transform: translate(-50%, -50%);*/
+  background-color: rgba(235,148,160,0.9);
+  /*  top: 50%;
+  left: 50%;
+*/    border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  font-family: 'darksouls';
+}
+#usuario{
+  width: 200px;
+  padding: 25px 30px;
+  /*  position: absolute; */
+  margin: auto;
+  /* transform: translate(-50%, -50%);*/
+  background-color: rgba(235,148,160,0.9);
+  /*  top: 50%;
+  left: 50%;
+*/    border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  margin-top: 230px;
+  color: rgb(0, 0, 0);
+  font-family: 'darksouls';
 }

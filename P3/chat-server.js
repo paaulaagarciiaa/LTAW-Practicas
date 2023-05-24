@@ -20,7 +20,7 @@ const io = socket(server);
 //-------- PUNTOS DE ENTRADA DE LA APLICACION WEB
 //-- Definir el punto de entrada principal de mi aplicación web
 app.get('/', (req, res) => {
-  res.send('Bienvenido a mi aplicación Web!!!' + '<p><a href="/chat.html">Test</a></p>');
+  res.send('Bienvenido a mi Chat!!!' + '<p><a href="/chat.html">Entrar al Chat</a></p>');
 });
 
 //-- Esto es necesario para que el servidor le envíe al cliente la
@@ -44,6 +44,7 @@ io.on('connect', (socket) => {
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
   socket.on("message", (msg)=> {
     console.log("Mensaje Recibido!: " + msg.blue);
+    
 
     //-- Reenviarlo a todos los clientes conectados
     io.send(msg);

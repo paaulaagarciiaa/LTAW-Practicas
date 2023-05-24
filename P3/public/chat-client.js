@@ -8,6 +8,16 @@ const username = prompt("Ingrese su nombre de usuario:");
 const socket = io();
 socket.emit("nuevo usuario", username);
 
+socket.on("connect", () => {
+  //-- Enviar mensaje inicial
+  socket.send(`${username}, se unió al chat!`);
+});
+
+socket.on("disconnect", () => {
+  //-- Enviar mensaje inicial
+  socket.send(`${username}, abandonó el chat!`);
+}); 
+
 // Enviar un mensaje al chat cuando se presiona el botón "Enviar"
 const enviarMensaje = () => {
   const mensajeInput = document.getElementById("mensaje-input");
