@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'fuente';
+    src: url(letra.otf);
+  }
+
+@font-face {
+    font-family: 'fuente2';
+    src: url(letra2.otf);
+}
+
+body{
+    background-image: url(fondo.jpg);
+    text-align: center;
+}
+
+h2 {
+    font-family: "fuente2";
+    font-size: 60px;
+    text-align: center;
+    padding: 10px;
+    margin: 100px;
+    margin-bottom: 0px;
+    color:black;
+    -webkit-text-stroke: 1.2px rgb(162, 184, 255);
+}
+
+#msg_entry{
+    border-color: rgb(162, 184, 255);
+    color: rgb(0, 0, 0);
+    width: 50%;
+    height: 30px;
+    font-size: 20px;
+    font-family: "fuente";
+    border-width: 3px;
+}
+
+#display{
+    border-style: outset;
+    border-width: 4px;
+    border-radius: 8px;
+    border-color: rgb(2, 49, 22);
+    text-align: center;
+    height: 500px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+    background-color: rgb(50, 160, 85, 0.8);
+    overflow: scroll;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+
+#usuario {
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 8px;
+    border-color: rgb(2, 49, 22);
+    text-align: center;
+    height: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 17px;
+    background-color: rgb(50, 160, 85, 0.8);
+    overflow: scroll;
+    font-family: "fuente2";
+}
+
+#button {
+  background-color: rgb(162, 184, 255);
+  height: 60px;
+  width: 60px;
+  padding: 15px;
+  border: solid;
+  border-color: black;
+  border-radius: 4px;
+  margin-left:5px;
+  margin-top: 5px;
+  font-size: 13px;
+  font-family: "fuente";
+}
+
+#button:hover{
+    background-image: url(cara.png);
+    background-size: cover; 
+  }
+
+

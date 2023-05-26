@@ -5,7 +5,7 @@ console.log("Arrancando electron...");
 
 //-- Variable para acceder a la ventana principal
 //-- Se pone aquí para que sea global al módulo principal
-let win = null;
+
 
 //-- Punto de entrada. En cuanto electron está listo,
 //-- ejecuta esta función
@@ -40,9 +40,15 @@ electron.app.on('ready', () => {
   //-- y luego enviar el mensaje al proceso de renderizado para que 
   //-- lo saque por la interfaz gráfica
   win.on('ready-to-show', () => {
-    win.webContents.send('print', "MENSAJE ENVIADO DESDE PROCESO MAIN");
+    win.webContents.send('ip', 'http://' + ip.address() + ':' + PUERTO);
   });
 
+  electron.ipcMain.handle("btn_test", async(event, mensaje) => {
+    console.log(mensaje);
+    io.send("Hola a todos", mensaje);
+    win.webContents.send("recibiendo", "Hola a todos");
+  }
+  )
 });
 
 
@@ -53,6 +59,7 @@ const socket = require('socket.io');
 const http = require('http');
 const express = require('express');
 const colors = require('colors');
+const ip = require('ip');
 
 const PUERTO = 9000;
 
@@ -84,9 +91,14 @@ io.on('connect', (socket) => {
   
   console.log('** NUEVO USUARIO CONECTADO **'.yellow);
 
+  win.webContents.send("numeroclientes",io.engine.clientsCount);
+
   //-- Evento de desconexión
   socket.on('disconnect', function(){
     console.log('** USUARIO DESCONECTADO **'.yellow);
+
+    win.webContents.send("numeroclientes",io.engine.clientsCount);
+  
   });  
 
   //-- Mensaje recibido: Reenviarlo a todos los clientes conectados
@@ -123,6 +135,7 @@ switch (command) {
   default:
     io.send(msg);
     break;
+    win.webContents.send("recibiendo", msg);
 }
   });
 

@@ -3,7 +3,6 @@ const electron = require('electron');
 console.log("Hola desde el proceso de la web...");
 
 //-- Obtener elementos de la interfaz
-const btn_test = document.getElementById("btn_test");
 const display = document.getElementById("display");
 const info1 = document.getElementById("info1");
 const info2 = document.getElementById("info2");
@@ -13,7 +12,7 @@ const Vchrome = document.getElementById("Vchrome");
 const Velectron = document.getElementById("Velectron");
 const numeroclientes = document.getElementById("numeroclientes");
 const ip = document.getElementById("ip");
-const print = document.getElementById("print");
+const btn_test = document.getElementById("btn_test");
 
 //-- Acceder a la API de node para obtener la info
 //-- Sólo es posible si nos han dado permisos desde
