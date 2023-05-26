@@ -26,11 +26,10 @@ Velectron.textContent = process.versions.electron;
 
 
 btn_test.onclick = () => {
-    display.innerHTML += "TEST! ";
     console.log("Botón apretado!");
 
     //-- Enviar mensaje al proceso principal
-    electron.ipcRenderer.invoke('test', "MENSAJE DE PRUEBA: Boton apretado");
+    electron.ipcRenderer.invoke('btn_test', "MENSAJE DE PRUEBA");
 }
 
 

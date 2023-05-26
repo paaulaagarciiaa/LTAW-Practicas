@@ -46,7 +46,7 @@ electron.app.on('ready', () => {
   electron.ipcMain.handle("btn_test", async(event, mensaje) => {
     console.log(mensaje);
     io.send("Hola a todos", mensaje);
-    win.webContents.send("recibiendo", "Hola a todos");
+    win.webContents.send("recibiendo", "Holaaaaaaaaaaaaa");
   }
   )
 });
@@ -145,7 +145,6 @@ switch (command) {
 //-- ¡Que empiecen los juegos de los WebSockets!
 server.listen(PUERTO);
 console.log("Escuchando en puerto: " + PUERTO);
-
 
 
 
