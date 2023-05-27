@@ -79,6 +79,12 @@
     height: 20px;
   }
 
+  #carrito {
+    width:40px;
+    height: 40px;
+    margin-left: 90%;
+  }
+
 #mapa {
   width: 850px;
   height: 500px;
@@ -88,6 +94,11 @@
 #sitios {
   margin-left: 125px;
 }
+
+#boton{
+text-align: center;
+}
+
 
 
 

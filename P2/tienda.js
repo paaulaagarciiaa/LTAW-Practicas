@@ -1,10 +1,8 @@
 // Importacion de modulos HTTP, FS, URL, PORT
-const http = require('http'),
-
-    url = require('url'),
-	  fs = require('fs'),
-	  port = 9000;
-
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const PUERTO = 9000;
 
 // Creacion del Servidor Web con sus respectivos argumentos
 http.createServer((req, res) => {
@@ -57,7 +55,6 @@ http.createServer((req, res) => {
 		return res.end();
 	});
 	
-}).listen(port);
+}).listen(PUERTO);
 
-console.log('Port: ' + port);
-console.log('Index URL: http://localhost:' + port + '/\n\n')
+console.log('PUERTO: ' + PUERTO);
